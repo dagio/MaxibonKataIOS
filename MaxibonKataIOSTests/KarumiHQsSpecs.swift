@@ -11,7 +11,7 @@ class KarumiHQsSpecs: XCTestCase {
 
             print("There are \(headQuarter.maxibonsLeft) maxibons left after \(developer.name) opened the fridge")
 
-            return headQuarter.maxibonsLeft >= 2
+            return headQuarter.maxibonsLeft > 2
         }
 
         property("There are always at least 2 maxibons left after MANY developers open the fridge") <- forAll { (developers: [Developer]) in
@@ -20,7 +20,7 @@ class KarumiHQsSpecs: XCTestCase {
 
             print("There are \(headQuarter.maxibonsLeft) maxibons left after \(developers.count) developers opened the fridge")
 
-            return headQuarter.maxibonsLeft >= 2
+            return headQuarter.maxibonsLeft > 2
         }
     }
 }
