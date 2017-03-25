@@ -9,4 +9,8 @@ class DeveloperSpecs: XCTestCase {
             developer.numberOfMaxibonsToGet >= 0
         }
     }
+
+    func testHowManyMaxibonsWantDevelopers() {
+        XCTAssertEqual(Karumies.Pedro.numberOfMaxibonsToGet, 3)
+    }
 }
