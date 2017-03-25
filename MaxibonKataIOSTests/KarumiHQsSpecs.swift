@@ -32,5 +32,21 @@ class KarumiHQsSpecs: XCTestCase {
 
             return headQuarter.maxibonsLeft > 2
         }
+
+        property("A message is sent when hungry developers open the fridge") <- forAll(Developer.arbitraryHungry) { (developer: Developer) in
+            let chat = MockChat()
+            let headQuarter = KarumiHQs(chat: chat)
+            headQuarter.openFridge(developer)
+
+            return chat.messageSent != nil
+         }
+
+        property("No message is sent when not very hungry developers open the fridge") <- forAll(Developer.arbitraryNotSoHungry) { (developer: Developer) in
+            let chat = MockChat()
+            let headQuarter = KarumiHQs(chat: chat)
+            headQuarter.openFridge(developer)
+
+            return chat.messageSent == nil
+        }
     }
 }
